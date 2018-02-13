@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Varela+Round">
+  <script src="vigenere.js"></script>
+  <script>
+    function encryptData(){
+      writeTextArea(encrypt(document.getElementById("keyword").value,document.getElementById("message").value));
+    }
+
+    function decryptData(){
+      writeTextArea(decrypt(document.getElementById("keyword").value,document.getElementById("message").value));
+    }
+
+    function writeTextArea(message){
+      document.getElementById('message').value = message;
+      //alert(message);
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>Vigenere Cipher</title>
+</head>
+<body>
+  <div class="title">
+    <h1>ASCII Vigenere Cipher</h1>
+    <p>Simple encryption using a Vigenere cipher with an alphabet of all printable ASCII chars.</p>
+  </div>
+  <form id="form">
+    <div class="form-group">
+      <input id="keyword" name="keyword" type="text" placeholder="Keyword">
+    </div>
+    <!--<div class="form-group">
+      <input id="encrypt" name="action" type="radio" checked>encrypt
+      <input id="decrypt" name="action" type="radio">decrypt
+    </div>-->
+    <div class="form-group">
+      <textarea id="message" name="message" id="message"></textarea>
+    </div>
+    <div class="form-group">
+
+    </div>
+  </form>
+  <button type="submit" class="btn button-primary" onclick="encryptData()">Encrypt</button>
+  <button type="submit" class="btn button-info" onclick="decryptData()">Decrypt</button>
+</body>
+</html>
